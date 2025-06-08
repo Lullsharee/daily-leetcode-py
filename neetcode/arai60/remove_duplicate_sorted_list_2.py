@@ -1,21 +1,25 @@
+from typing import Optional
+
 
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next_node=None):
         self.val = val
-        self.next = next
+        self.next = next_node
+
+
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-      dummy = ListNode(-1, head)
-      prev, current = dummy, head
+        dummy = ListNode(-1, head)
+        prev, current = dummy, head
 
-      while current and current.next:
-          while current.next and current.val == current.next.val:
-              current = current.next
-          if prev.next == current:
-              prev = current
-              current = current.next
-          else:
-              prev.next = current.next
-              current = current.next
+        while current and current.next:
+            while current.next and current.val == current.next.val:
+                current = current.next
+            if prev.next == current:
+                prev = current
+                current = current.next
+            else:
+                prev.next = current.next
+                current = current.next
 
-      return dummy.next
+        return dummy.next
