@@ -1,9 +1,9 @@
 from typing import List
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
-        set_nums = set()
+        nums_set = set()
         for num in nums:
-            if num in set_nums:
+            if num in nums_set:
                 return True
-            set_nums.add(num)
+            nums_set.add(num)
         return False
